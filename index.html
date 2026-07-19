@@ -1,46 +1,38 @@
-
-
-Index · HTML
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-THFJY8HRXQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-THFJY8HRXQ');
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="585_YdRNlyKCGPPz3kQsD9k7qPYNPRlZY_AL8vNXmV8" />
 <title>Web Developer in Painesville & Mentor, Ohio | Michael House — Custom Websites & Software Engineering</title>
 <meta name="description" content="Custom website design and software engineering for businesses in Painesville, Mentor, and Lake County, Ohio. Backend engineering background, custom-coded sites, no templates. U.S. Army veteran, B.S. Computer Science.">
 <meta name="keywords" content="web developer Painesville Ohio, web designer Mentor Ohio, Lake County Ohio web design, custom website developer Northeast Ohio, software engineer Painesville, small business website Mentor OH, freelance web developer Ohio">
 <meta name="author" content="Michael House">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://michaelhouse.dev/">
- 
+<link rel="canonical" href="https://mikehengineer.github.io/">
+
+<!-- Favicon -->
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="favicon.svg">
+
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Web Developer in Painesville & Mentor, Ohio | Michael House">
 <meta property="og:description" content="Custom website design and software engineering for businesses in Painesville, Mentor, and Lake County, Ohio. Custom-coded, no templates, built to last.">
-<meta property="og:url" content="https://michaelhouse.dev/">
+<meta property="og:url" content="https://mikehengineer.github.io/">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Michael House — Web Development">
- 
+
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Web Developer in Painesville & Mentor, Ohio | Michael House">
 <meta name="twitter:description" content="Custom website design and software engineering for businesses in Lake County, Ohio.">
- 
+
 <!-- Geo tags -->
 <meta name="geo.region" content="US-OH">
 <meta name="geo.placename" content="Painesville, Ohio">
 <meta name="ICBM" content="41.7284, -81.2495">
- 
+
 <!-- Structured Data: Local Professional Service -->
 <script type="application/ld+json">
 {
@@ -48,7 +40,7 @@ Index · HTML
   "@type": "ProfessionalService",
   "name": "Michael House — Web Development & Software Engineering",
   "description": "Custom website design, software engineering, and IT infrastructure services for businesses in Painesville, Mentor, and the greater Lake County, Ohio area.",
-  "url": "https://michaelhouse.dev/",
+  "url": "https://mikehengineer.github.io/",
   "email": "mikehengineer@gmail.com",
   "areaServed": [
     {"@type": "City", "name": "Painesville, OH"},
@@ -91,11 +83,11 @@ Index · HTML
     --line-strong: rgba(21,26,30,0.22);
     --radius: 3px;
   }
- 
+
   *{margin:0;padding:0;box-sizing:border-box;}
- 
+
   html{scroll-behavior:smooth;}
- 
+
   body{
     background:var(--paper);
     color:var(--ink);
@@ -104,27 +96,27 @@ Index · HTML
     line-height:1.55;
     -webkit-font-smoothing:antialiased;
   }
- 
+
   h1,h2,h3{
     font-family:'Fraunces', serif;
     font-weight:500;
     letter-spacing:-0.01em;
     line-height:1.08;
   }
- 
+
   .mono{
     font-family:'IBM Plex Mono', monospace;
     letter-spacing:0.02em;
   }
- 
+
   a{color:inherit;text-decoration:none;}
- 
+
   .wrap{
     max-width:1180px;
     margin:0 auto;
     padding:0 40px;
   }
- 
+
   /* ---------- NAV ---------- */
   header{
     position:sticky;
@@ -173,7 +165,7 @@ Index · HTML
   @media (max-width:760px){
     .nav-links{display:none;}
   }
- 
+
   /* ---------- HERO ---------- */
   .hero{
     padding:100px 40px 90px;
@@ -243,7 +235,7 @@ Index · HTML
     transition:border-color 0.2s;
   }
   .btn-ghost:hover, .btn-ghost:focus-visible{border-color:var(--ink);}
- 
+
   /* Terminal panel */
   .term{
     background:var(--ink);
@@ -272,7 +264,7 @@ Index · HTML
     animation:blink 1.1s steps(1) infinite;
   }
   @keyframes blink{50%{opacity:0;}}
- 
+
   /* ---------- MARQUEE STRIP ---------- */
   .strip{
     border-top:1px solid var(--line);
@@ -295,7 +287,7 @@ Index · HTML
     from{transform:translateX(0);}
     to{transform:translateX(-50%);}
   }
- 
+
   /* ---------- SECTION SHELL ---------- */
   section{padding:110px 40px;}
   .section-inner{max-width:1180px;margin:0 auto;}
@@ -317,7 +309,7 @@ Index · HTML
   }
   .section-head h2{font-size:clamp(1.9rem, 3.4vw, 2.6rem);max-width:16ch;}
   .section-head p{color:var(--slate);max-width:34ch;font-size:0.98rem;}
- 
+
   /* ---------- SERVICES (spec sheet) ---------- */
   .spec-list{border-top:1px solid var(--line-strong);}
   .spec-row{
@@ -335,7 +327,7 @@ Index · HTML
   @media (max-width:760px){
     .spec-row{grid-template-columns:1fr;gap:8px;}
   }
- 
+
   /* ---------- FEATURED WORK ---------- */
   .case{
     background:var(--ink);
@@ -404,7 +396,7 @@ Index · HTML
   @media (max-width:860px){
     .case{grid-template-columns:1fr;padding:36px 28px;}
   }
- 
+
   /* ---------- ABOUT / BUILD HISTORY ---------- */
   .about{
     display:grid;
@@ -462,7 +454,7 @@ Index · HTML
   @media (max-width:860px){
     .about{grid-template-columns:1fr;}
   }
- 
+
   /* ---------- PRICING ---------- */
   .pricing-grid{
     display:grid;
@@ -542,7 +534,7 @@ Index · HTML
   @media (max-width:900px){
     .pricing-grid{grid-template-columns:1fr;}
   }
- 
+
   /* ---------- PROCESS ---------- */
   .process-grid{
     display:grid;
@@ -564,7 +556,7 @@ Index · HTML
   @media (max-width:520px){
     .process-grid{grid-template-columns:1fr;}
   }
- 
+
   /* ---------- CONTACT ---------- */
   .contact{
     background:var(--ink);
@@ -601,7 +593,7 @@ Index · HTML
   @media (max-width:860px){
     .contact-inner{grid-template-columns:1fr;}
   }
- 
+
   /* ---------- FOOTER ---------- */
   footer{
     padding:32px 40px;
@@ -614,18 +606,18 @@ Index · HTML
     flex-wrap:wrap;
     gap:12px;
   }
- 
+
   /* reveal on scroll */
   .reveal{opacity:0;transform:translateY(18px);transition:opacity 0.7s ease, transform 0.7s ease;}
   .reveal.in{opacity:1;transform:translateY(0);}
- 
+
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
     .reveal{opacity:1;transform:none;transition:none;}
     .strip-track{animation:none;}
     .term-cursor{animation:none;}
   }
- 
+
   @media (max-width:760px){
     .hero{grid-template-columns:1fr;padding:70px 24px 60px;}
     section{padding:70px 24px;}
@@ -634,7 +626,7 @@ Index · HTML
 </style>
 </head>
 <body>
- 
+
 <header>
   <nav>
     <div class="brand">Michael <span>House</span></div>
@@ -648,7 +640,7 @@ Index · HTML
     <a href="#contact" class="nav-cta">Start a project</a>
   </nav>
 </header>
- 
+
 <section class="hero" style="padding-top:100px;">
   <div>
     <div class="eyebrow">Serving Painesville, Mentor &amp; Lake County, OH</div>
@@ -670,7 +662,7 @@ Index · HTML
     <div class="term-line" style="margin-top:14px;">$ status<span class="term-cursor"></span></div>
   </div>
 </section>
- 
+
 <div class="strip">
   <div class="strip-track">
     <span>PAINESVILLE, OH</span>
@@ -699,7 +691,7 @@ Index · HTML
     <span>·</span>
   </div>
 </div>
- 
+
 <section id="services">
   <div class="section-inner">
     <div class="section-head reveal">
@@ -709,7 +701,7 @@ Index · HTML
       </div>
       <p>Every engagement starts with the same question: what does this system actually need to do, reliably, for years — not just on launch day. Proudly serving Painesville, Mentor, and businesses throughout Lake County, Ohio.</p>
     </div>
- 
+
     <div class="spec-list reveal">
       <div class="spec-row">
         <div class="spec-id">A.01</div>
@@ -734,7 +726,7 @@ Index · HTML
     </div>
   </div>
 </section>
- 
+
 <section id="work">
   <div class="section-inner">
     <div class="section-head reveal">
@@ -744,7 +736,7 @@ Index · HTML
       </div>
       <p>A full marketing site redesign for a structural engineering and code consulting firm.</p>
     </div>
- 
+
     <div class="case reveal">
       <div>
         <div class="case-tag">Case Study</div>
@@ -773,7 +765,7 @@ Index · HTML
     </div>
   </div>
 </section>
- 
+
 <section id="about">
   <div class="section-inner about">
     <div class="reveal">
@@ -810,7 +802,7 @@ Index · HTML
     </div>
   </div>
 </section>
- 
+
 <section id="pricing">
   <div class="section-inner">
     <div class="section-head reveal">
@@ -820,7 +812,7 @@ Index · HTML
       </div>
       <p>Fixed-scope pricing for custom business websites — no surprise invoices. Add-ons available for larger projects.</p>
     </div>
- 
+
     <div class="pricing-grid reveal">
       <div class="price-card">
         <span class="price-tag">Basic</span>
@@ -836,7 +828,7 @@ Index · HTML
         </div>
         <a href="#contact" class="price-cta">Start with Basic</a>
       </div>
- 
+
       <div class="price-card featured">
         <span class="price-tag">Standard</span>
         <h3>Business Website</h3>
@@ -852,7 +844,7 @@ Index · HTML
         </div>
         <a href="#contact" class="price-cta">Start with Standard</a>
       </div>
- 
+
       <div class="price-card">
         <span class="price-tag">Premium</span>
         <h3>Full Custom Build</h3>
@@ -869,11 +861,11 @@ Index · HTML
         <a href="#contact" class="price-cta">Start with Premium</a>
       </div>
     </div>
- 
+
     <p class="price-note reveal"><b>Add-ons available:</b> extra page (+$100), extra revision round (+$60), payment integration, hosting setup (+$75), and more — scoped based on your project.</p>
   </div>
 </section>
- 
+
 <section id="process">
   <div class="section-inner">
     <div class="section-head reveal">
@@ -883,7 +875,7 @@ Index · HTML
       </div>
       <p>Same structure whether it's a single page or a full infrastructure build.</p>
     </div>
- 
+
     <div class="process-grid reveal">
       <div class="process-cell">
         <span class="mono">STEP 01</span>
@@ -908,7 +900,7 @@ Index · HTML
     </div>
   </div>
 </section>
- 
+
 <section class="contact" id="contact">
   <div class="section-inner contact-inner">
     <div class="reveal">
@@ -925,85 +917,15 @@ Index · HTML
     </div>
   </div>
 </section>
- 
-<section class="vob-strip">
-  <div class="wrap vob-strip-inner">
-    <span class="mono vob-strip-label">$ verify --credentials</span>
-    <div class="vob-badges">
-      <a href="https://www.veteranownedbusiness.com/business/40414/michael-house-web-development" class="vob-badge" target="_blank" rel="noopener">
-        <img src="assets/badges/vob-web-design.png" alt="Veteran Owned Business — Web Design Verified Member">
-        <span>Verified Web Design Member</span>
-      </a>
-    </div>
-  </div>
-</section>
- 
-<style>
-  .vob-strip{
-    padding:28px 40px;
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
-    background:var(--paper-dim);
-  }
-  .vob-strip-inner{
-    display:flex;
-    align-items:center;
-    flex-wrap:wrap;
-    gap:20px;
-  }
-  .vob-strip-label{
-    font-size:0.78rem;
-    color:var(--brass);
-    text-transform:uppercase;
-    letter-spacing:0.08em;
-    display:flex;
-    align-items:center;
-    gap:8px;
-  }
-  .vob-strip-label::before{
-    content:'';
-    width:7px;height:7px;
-    border-radius:50%;
-    background:var(--petrol-bright);
-  }
-  .vob-badges{
-    display:flex;
-    align-items:center;
-    gap:16px;
-    flex-wrap:wrap;
-  }
-  .vob-badge{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    padding:6px 12px;
-    border:1px solid var(--line-strong);
-    border-radius:var(--radius);
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.76rem;
-    color:var(--slate);
-    background:var(--paper);
-    transition:border-color 0.2s ease, color 0.2s ease;
-  }
-  .vob-badge:hover{
-    border-color:var(--petrol-bright);
-    color:var(--petrol);
-  }
-  .vob-badge img{
-    height:28px;
-    width:auto;
-    display:block;
-  }
-</style>
- 
+
 <footer>
   <span>© <span id="year"></span> Michael House — Painesville, OH</span>
   <span class="mono">Serving Mentor &amp; Lake County</span>
 </footer>
- 
+
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
- 
+
   // scroll reveal
   const revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
@@ -1020,7 +942,6 @@ Index · HTML
     revealEls.forEach(el => el.classList.add('in'));
   }
 </script>
- 
+
 </body>
 </html>
- 
