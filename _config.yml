@@ -1,6 +1,4 @@
-# 1. Provide the exact domain address search engines must crawl
-url: "https://michaelhouse.dev" 
-
-# 2. Tell Jekyll to automatically build the map file
+url: "https://michaelhouse.dev"
+baseurl: ""
 plugins:
   - jekyll-sitemap
