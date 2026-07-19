@@ -590,6 +590,46 @@
   }
   .email-link:hover, .email-link:focus-visible{color:var(--petrol-bright);border-color:var(--petrol-bright);}
   .contact-meta{display:flex;flex-direction:column;gap:10px;font-family:'IBM Plex Mono', monospace;font-size:0.82rem;color:#9DB0AA;}
+  .contact-form{display:flex;flex-direction:column;gap:16px;margin-bottom:26px;}
+  .contact-form label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.76rem;
+    color:#8FA09A;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    display:block;
+    margin-bottom:6px;
+  }
+  .contact-form input, .contact-form textarea{
+    width:100%;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.16);
+    border-radius:4px;
+    padding:12px 14px;
+    color:var(--paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:0.95rem;
+  }
+  .contact-form input::placeholder, .contact-form textarea::placeholder{color:#5F726C;}
+  .contact-form input:focus, .contact-form textarea:focus{outline:none;border-color:var(--petrol-bright);}
+  .contact-form textarea{resize:vertical;min-height:110px;}
+  .contact-submit{
+    background:var(--petrol);
+    border:1px solid var(--petrol);
+    color:var(--paper);
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    letter-spacing:0.03em;
+    padding:13px 20px;
+    border-radius:4px;
+    cursor:pointer;
+    transition:background 0.2s,transform 0.2s;
+  }
+  .contact-submit:hover{background:var(--petrol-bright);transform:translateY(-1px);}
+  .contact-submit:disabled{opacity:0.6;cursor:default;transform:none;}
+  .form-status{font-family:'IBM Plex Mono', monospace;font-size:0.82rem;margin-top:14px;min-height:1.2em;}
+  .form-status.ok{color:var(--petrol-bright);}
+  .form-status.err{color:#E08A6B;}
   @media (max-width:860px){
     .contact-inner{grid-template-columns:1fr;}
   }
@@ -629,7 +669,17 @@
 
 <header>
   <nav>
-    <div class="brand">Michael <span>House</span></div>
+    <div class="brand">
+      <svg width="26" height="26" viewBox="0 0 64 64" style="vertical-align:-6px;margin-right:8px;" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#0f172a"/>
+        <g stroke="#ff7a1a" stroke-width="5.2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+          <path d="M24 20 L12 32 L24 44"/>
+          <path d="M40 20 L52 32 L40 44"/>
+        </g>
+        <line x1="29" y1="46" x2="35" y2="18" stroke="#ff7a1a" stroke-width="4.6" stroke-linecap="round"/>
+      </svg>
+      Michael <span>House</span>
+    </div>
     <div class="nav-links">
       <a href="#services">Services</a>
       <a href="#work">Work</a>
@@ -908,9 +958,25 @@
       <p>Tell me what you're building — I'll reply with next steps and a realistic timeline.</p>
     </div>
     <div class="contact-card reveal">
-      <span class="mono">Email</span>
-      <a href="mailto:mikehengineer@gmail.com" class="email-link">mikehengineer@gmail.com</a>
+      <span class="mono">Send a message</span>
+      <form class="contact-form" id="contact-form" action="https://formspree.io/f/xrenkgnl" method="POST">
+        <div>
+          <label for="cf-name">Name</label>
+          <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+        </div>
+        <div>
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" placeholder="you@company.com" required>
+        </div>
+        <div>
+          <label for="cf-message">Project details</label>
+          <textarea id="cf-message" name="message" placeholder="What are you building?" required></textarea>
+        </div>
+        <button type="submit" class="contact-submit">Send message →</button>
+        <p class="form-status" id="cf-status" role="status"></p>
+      </form>
       <div class="contact-meta">
+        <span>Or email directly: <a href="mailto:mikehengineer@gmail.com" style="color:inherit;text-decoration:underline;">mikehengineer@gmail.com</a></span>
         <span>Painesville, OH — serving Mentor &amp; Lake County</span>
         <span>Response within 1–2 business days</span>
       </div>
@@ -925,6 +991,38 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // contact form submit
+  const cf = document.getElementById('contact-form');
+  const cfStatus = document.getElementById('cf-status');
+  cf.addEventListener('submit', function(e){
+    e.preventDefault();
+    const btn = cf.querySelector('.contact-submit');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    cfStatus.textContent = '';
+    cfStatus.className = 'form-status';
+    fetch(cf.action, {
+      method: 'POST',
+      body: new FormData(cf),
+      headers: { 'Accept': 'application/json' }
+    }).then(res => {
+      if (res.ok) {
+        cf.reset();
+        cfStatus.textContent = 'Message sent — I\'ll reply within 1–2 business days.';
+        cfStatus.classList.add('ok');
+      } else {
+        cfStatus.textContent = 'Something went wrong. Try emailing directly instead.';
+        cfStatus.classList.add('err');
+      }
+    }).catch(() => {
+      cfStatus.textContent = 'Something went wrong. Try emailing directly instead.';
+      cfStatus.classList.add('err');
+    }).finally(() => {
+      btn.disabled = false;
+      btn.textContent = 'Send message →';
+    });
+  });
 
   // scroll reveal
   const revealEls = document.querySelectorAll('.reveal');
