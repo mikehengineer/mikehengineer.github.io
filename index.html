@@ -648,6 +648,18 @@
     flex-wrap:wrap;
     gap:12px;
   }
+  .footer-left{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+  .vob-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:5px 10px;
+    border:1px solid var(--line);
+    border-radius:4px;
+    color:var(--slate);
+    transition:border-color 0.2s, color 0.2s;
+  }
+  .vob-badge:hover, .vob-badge:focus-visible{border-color:var(--petrol);color:var(--petrol);}
 
   /* reveal on scroll */
   .reveal{opacity:0;transform:translateY(18px);transition:opacity 0.7s ease, transform 0.7s ease;}
@@ -987,7 +999,10 @@
 </section>
 
 <footer>
-  <span>© <span id="year"></span> Michael House — Painesville, OH</span>
+  <div class="footer-left">
+    <span>© <span id="year"></span> Michael House — Painesville, OH</span>
+    <a href="https://www.veteranownedbusiness.com/business/40414/michael-house-web-development" target="_blank" rel="noopener" class="vob-badge">Veteran Owned Business ↗</a>
+  </div>
   <span class="mono">Serving Mentor &amp; Lake County</span>
 </footer>
 
