@@ -1,0 +1,474 @@
+---
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>AI-Assisted Plan Review for F&amp;B Engineering</title>
+<style>
+  :root{
+    --navy:#132436;
+    --navy-2:#1c3550;
+    --slate:#44586b;
+    --slate-light:#6b8098;
+    --paper:#f7f5ef;
+    --line:#d7dde3;
+    --amber:#c96a2e;
+    --amber-light:#e8ecef;
+    --green:#3a7d5c;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Georgia","Iowan Old Style",serif;
+    color:var(--navy);
+    background:var(--paper);
+    line-height:1.55;
+  }
+  .sans{font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;}
+  header.hero{
+    position:relative;
+    background:
+      linear-gradient(rgba(19,36,54,0.94), rgba(19,36,54,0.94)),
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.045) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.045) 0 1px, transparent 1px 32px);
+    color:#fff;
+    padding:64px 48px 56px;
+  }
+  .kicker{
+    font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.16em;
+    font-size:12px;
+    color:#e9b78c;
+    margin:0 0 18px;
+  }
+  h1{
+    font-size:38px;
+    line-height:1.18;
+    margin:0 0 18px;
+    max-width:820px;
+    font-weight:600;
+  }
+  .sub{
+    font-size:18px;
+    color:#c9d4de;
+    max-width:640px;
+    margin:0 0 28px;
+  }
+  .prepared{
+    font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:13px;
+    color:#8fa2b5;
+    border-top:1px solid rgba(255,255,255,0.18);
+    padding-top:18px;
+    max-width:640px;
+  }
+  main{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 48px;
+  }
+  section{
+    padding:52px 0;
+    border-bottom:1px solid var(--line);
+  }
+  section:last-of-type{border-bottom:none;}
+  h2{
+    font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.14em;
+    color:var(--amber);
+    margin:0 0 14px;
+    font-weight:700;
+  }
+  h3{
+    font-size:24px;
+    margin:0 0 16px;
+    font-weight:600;
+    color:var(--navy);
+  }
+  p{
+    font-size:17px;
+    color:#2c3e4f;
+    margin:0 0 16px;
+  }
+  .lead{
+    font-size:20px;
+    color:var(--navy);
+  }
+  .two-col{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+    margin-top:24px;
+  }
+  .stat-card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-left:3px solid var(--amber);
+    padding:20px 22px;
+  }
+  .stat-card .num{
+    font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:26px;
+    font-weight:700;
+    color:var(--navy);
+    display:block;
+    margin-bottom:4px;
+  }
+  .stat-card .lbl{
+    font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:13px;
+    color:var(--slate);
+  }
+
+  /* Pipeline diagram */
+  .pipeline{
+    display:flex;
+    align-items:stretch;
+    gap:0;
+    margin:30px 0 8px;
+    overflow-x:auto;
+  }
+  .pstep{
+    flex:1 1 0;
+    min-width:132px;
+    text-align:center;
+    padding:0 6px;
+    position:relative;
+  }
+  .pstep .icon-wrap{
+    width:56px;height:56px;
+    margin:0 auto 12px;
+    background:#fff;
+    border:1.5px solid var(--navy-2);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .pstep.human .icon-wrap{
+    border-color:var(--amber);
+    background:#fdf1e8;
+  }
+  .pstep svg{width:26px;height:26px;stroke:var(--navy-2);}
+  .pstep.human svg{stroke:var(--amber);}
+  .pstep .t{
+    font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:13px;
+    font-weight:600;
+    color:var(--navy);
+    margin-bottom:4px;
+  }
+  .pstep .d{
+    font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:11.5px;
+    color:var(--slate);
+    line-height:1.4;
+  }
+  .arrow{
+    align-self:center;
+    color:var(--slate-light);
+    font-size:20px;
+    padding-top:16px;
+    flex:0 0 auto;
+  }
+  .callout{
+    font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+    background:var(--navy);
+    color:#e8ecef;
+    padding:18px 22px;
+    font-size:14.5px;
+    margin-top:28px;
+    border-radius:2px;
+  }
+  .callout b{color:#e9b78c;}
+
+  ul.plain{padding-left:20px;margin:0 0 16px;}
+  ul.plain li{margin-bottom:10px;font-size:16.5px;color:#2c3e4f;}
+
+  /* Roadmap */
+  .roadmap{margin-top:30px;}
+  .phase{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:20px;
+    padding:22px 0;
+    border-top:1px solid var(--line);
+  }
+  .phase:first-child{border-top:none;}
+  .phase .tag{
+    font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:0.06em;
+    color:#fff;
+    background:var(--navy-2);
+    padding:5px 10px;
+    border-radius:2px;
+    text-align:center;
+    align-self:start;
+    text-transform:uppercase;
+  }
+  .phase.ask .tag{background:var(--amber);}
+  .phase.future .tag{background:var(--slate-light);}
+  .phase h4{
+    font-size:18px;margin:0 0 6px;color:var(--navy);font-weight:600;
+  }
+  .phase p{font-size:15.5px;margin:0 0 8px;}
+  .phase .price{
+    font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:14px;font-weight:700;color:var(--green);
+  }
+
+  /* Tech grid */
+  .tech-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin-top:26px;
+  }
+  .tech-item{
+    background:#fff;
+    border:1px solid var(--line);
+    padding:20px 22px;
+  }
+  .tech-item h5{
+    margin:0 0 8px;
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--navy-2);
+    font-weight:700;
+  }
+  .tech-item p{
+    font-size:14px;
+    color:var(--slate);
+    margin:0;
+    line-height:1.55;
+  }
+  @media(max-width:640px){
+    .tech-grid{grid-template-columns:1fr;}
+  }
+
+  /* Not this / boundaries */
+  .boundaries{
+    background:#fff;
+    border:1px solid var(--line);
+    padding:26px 28px;
+    margin-top:20px;
+  }
+  .boundaries li{font-size:15.5px;}
+
+  .cta{
+    background:var(--navy);
+    color:#fff;
+    padding:56px 48px;
+    text-align:left;
+  }
+  .cta h3{color:#fff;font-size:26px;}
+  .cta p{color:#c9d4de;font-size:17px;max-width:560px;}
+  .cta .sign{
+    font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+    margin-top:30px;
+    font-size:14px;
+    color:#8fa2b5;
+    border-top:1px solid rgba(255,255,255,0.18);
+    padding-top:18px;
+    max-width:560px;
+  }
+  footer{
+    font-family:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+    text-align:center;
+    font-size:12px;
+    color:var(--slate-light);
+    padding:22px;
+  }
+
+  @media(max-width:640px){
+    header.hero{padding:44px 22px 40px;}
+    main{padding:0 22px;}
+    h1{font-size:28px;}
+    .two-col{grid-template-columns:1fr;}
+    .pipeline{flex-direction:column;}
+    .arrow{transform:rotate(90deg);padding:0;}
+    .phase{grid-template-columns:1fr;}
+    .cta{padding:40px 22px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <p class="kicker">Proposal &nbsp;·&nbsp; F&amp;B Engineering</p>
+  <h1>A first pass that starts already checked against code, not from a blank page</h1>
+  <p class="sub">An assist tool for plan review: it reads a submittal, searches the actual code text for your jurisdiction, and hands you a draft with citations before you open the file. You still sign everything.</p>
+  <p class="prepared sans">Prepared for Dennis Bowman, P.E. and Jerry Flanik &nbsp;|&nbsp; Michael House &nbsp;|&nbsp; August 2026</p>
+</header>
+
+<main>
+
+<section id="foreword">
+  <h2>Foreword</h2>
+  <h3>Why this, why now, why you</h3>
+  <p class="lead">Right now, the firms experimenting with AI in plan review are almost all large: big municipal departments, national engineering outfits, software vendors selling to both. A two-principal firm running its own review-assist tool, built on its own past reports, tuned to its own jurisdictions, would be ahead of nearly everyone in the field.</p>
+  <p>That's not a stretch claim. The technology this proposal uses is the same class of tooling those large players are piloting. What they can't do is move fast. They have procurement cycles, committees, and vendors in the middle. FBE has two engineers who know exactly how a review gets done, a bounded set of codes and towns, and someone who already maintains their infrastructure. That combination is rare, and it's the whole reason a firm this size can have something working while the industry is still writing white papers.</p>
+  <p>The payoff isn't a gadget. It's throughput: more submittals reviewed per week with the same two signatures, a baseline check that never gets tired or rushed, and a written, cited trail behind every flag. Clients notice turnaround. Departments notice consistency. And when other firms eventually catch up, FBE will have years of its own review history already built into how it works.</p>
+  <p>Everything after this page is deliberately conservative: a $500 discovery day, a small pilot tested against cases you've already closed, and a stop point if it doesn't hold up. The ambition is in where this puts the firm. The plan itself takes no risks it doesn't have to.</p>
+</section>
+
+<section id="problem">
+  <h2>The Bottleneck</h2>
+  <h3>Every submittal starts the same way, from zero</h3>
+  <p class="lead">A set comes in, and the first hour or two goes to the same mechanical work every time: opening the code book, finding the sections that apply, and checking the drawings against them line by line.</p>
+  <p>That work has to happen, but it isn't the part of the job that needs a P.E. behind it. It needs someone who can read a drawing and cross-reference a standard. The judgment calls, the borderline cases, and the client conversations are where the license and the experience actually matter, and right now they're competing for the same hours as the mechanical part.</p>
+  <div class="two-col">
+    <div class="stat-card">
+      <span class="num">1st pass</span>
+      <span class="lbl">is code lookup, not judgment</span>
+    </div>
+    <div class="stat-card">
+      <span class="num">Same set,</span>
+      <span class="lbl">same sections, checked by hand every time</span>
+    </div>
+  </div>
+</section>
+
+<section id="what">
+  <h2>What This Is</h2>
+  <h3>A draft flag-list, cited, before you touch the file</h3>
+  <p>Feed it a submitted plan set. It searches the actual text of the applicable code (NFPA, ICC, and the local amendments for that jurisdiction) and drafts a list of what to check and where, with the specific section cited next to each item.</p>
+
+  <div class="pipeline">
+    <div class="pstep">
+      <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div>
+      <div class="t">Submittal in</div>
+      <div class="d">PDF plan set, as received</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="pstep">
+      <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg></div>
+      <div class="t">Code search</div>
+      <div class="d">Retrieves the exact sections that apply: NFPA, ICC, local amendments</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="pstep">
+      <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+      <div class="t">Draft flags</div>
+      <div class="d">Issue list with a citation next to each item</div>
+    </div>
+    <div class="arrow">→</div>
+    <div class="pstep human">
+      <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div>
+      <div class="t">You review &amp; sign</div>
+      <div class="d">Dennis or Jerry verifies, edits, and signs, same as today</div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <b>The tool never issues anything.</b> It reasons over retrieved, cited code text and doesn't memorize or improvise. No model is trained on FBE's reports, and nothing goes out the door without your signature. That's not a limitation bolted on afterward. It's the whole premise the pitch rests on.
+  </div>
+</section>
+
+<section id="tech">
+  <h2>Under the Hood</h2>
+  <h3>Proven parts, assembled for one firm's workflow</h3>
+  <p>None of this is experimental research. Each piece is an established, commercially supported technology; the work is in wiring them together around how FBE actually reviews.</p>
+
+  <div class="tech-grid sans">
+    <div class="tech-item">
+      <h5>Language model API</h5>
+      <p>The reading-and-reasoning engine is a commercial large language model (Claude or GPT), accessed over its API. These are the same models in production use at law firms and engineering companies for document analysis. We rent the capability per use; there's nothing to host, train, or maintain.</p>
+    </div>
+    <div class="tech-item">
+      <h5>Retrieval index (RAG)</h5>
+      <p>The applicable code text, NFPA standards plus your jurisdiction's amendments, gets split into sections and stored in a searchable index. When the tool evaluates a plan set, it pulls the exact relevant passages and hands them to the model alongside the drawings. The model works from the real code text on every run, which is why every flag can carry a citation. The industry term is retrieval-augmented generation, RAG.</p>
+    </div>
+    <div class="tech-item">
+      <h5>PDF ingestion &amp; OCR</h5>
+      <p>Submittals come in as PDFs. A processing step extracts the text and, for scanned or image-only pages, runs optical character recognition so nothing in the set is invisible to the tool. Most modern submittals are already digital, so this stage is usually light.</p>
+    </div>
+    <div class="tech-item">
+      <h5>Eval harness</h5>
+      <p>This is the quality-control machinery, and it's what separates a real tool from a demo. Your 8&ndash;12 past signed reports become a scored test set: every change to the pipeline gets re-run against all of them, and we measure how closely the draft flags match what you actually found. The tool has to earn its accuracy on your own closed cases before it ever touches a live one.</p>
+    </div>
+    <div class="tech-item">
+      <h5>Storage &amp; interface</h5>
+      <p>The index and results live in Supabase, a managed Postgres database with built-in vector search, and any interface is built in Next.js. This is the same stack already running behind FBE's website, so it extends infrastructure I already maintain for you rather than adding a new vendor.</p>
+    </div>
+    <div class="tech-item">
+      <h5>What we deliberately don't use</h5>
+      <p>No model training or fine-tuning. Training a model on code text would bake it into opaque weights where it can't be cited, audited, or updated when a code edition changes. Retrieval keeps the code text external, current, and quotable, and it sidesteps the copyright questions that come with reproducing standards from memory.</p>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <h2>What Changes</h2>
+  <h3>More sets through the queue, without adding headcount</h3>
+  <ul class="plain">
+    <li><strong>The first pass starts from a draft, not a blank page.</strong> Review time shifts toward judgment calls instead of manual code lookup.</li>
+    <li><strong>Nothing gets skipped because someone got busy.</strong> The same baseline check runs every time, on every set.</li>
+    <li><strong>Every flag comes with a citation.</strong> If a client or inspector asks "where does it say that," the answer is already attached.</li>
+    <li><strong>It grows with the jurisdictions you actually review.</strong> No attempt to build a nationwide code database, just the disciplines and municipalities FBE works in.</li>
+  </ul>
+</section>
+
+<section id="roadmap">
+  <h2>How We'd Prove It</h2>
+  <h3>Test it on cases you've already closed, before either of us spends real money</h3>
+
+  <div class="roadmap">
+    <div class="phase">
+      <div class="tag sans">Phase 0</div>
+      <div>
+        <h4>Discovery: one shadow day</h4>
+        <p>I sit in on a normal review cycle, we pull 8–12 of your own past signed reports for one discipline (fire alarm/sprinkler, NFPA 13/72, is the cleanest starting point) in one jurisdiction, and confirm what code-access subscriptions FBE already holds.</p>
+        <p class="price sans">$500 flat for the shadow day and write-up. This is what earns the right to quote Phase 1 honestly.</p>
+      </div>
+    </div>
+    <div class="phase ask">
+      <div class="tag sans">Phase 1: The Ask</div>
+      <div>
+        <h4>MVP pilot, built against your own cases</h4>
+        <p>Build the retrieval index for that one discipline and jurisdiction, run it against the same 8–12 reports from Phase 0, and score the draft flags against what you already found by hand. If it doesn't hold up on cases you've already closed, we stop here.</p>
+        <p class="price sans">≈ $4,300 – $5,700 (exact figure depends on whether FBE already holds NFPA/ICC seats, confirmed in Phase 0)</p>
+      </div>
+    </div>
+    <div class="phase future">
+      <div class="tag sans">Later</div>
+      <div>
+        <h4>More disciplines, more jurisdictions, a client portal</h4>
+        <p>Once Phase 1 proves out on real cases, expanding coverage and adding a client-facing status portal are separate conversations, priced and scoped once there's something working to point to.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="boundaries">
+  <h2>What This Isn't</h2>
+  <div class="boundaries">
+    <ul class="plain" style="margin-bottom:0;">
+      <li>Not a black box. Every flag traces to a specific, citable code section.</li>
+      <li>Not a replacement for engineering judgment. It drafts, you decide.</li>
+      <li>Not trained on FBE's reports. No fine-tuning, no model that "learns" your data. It looks things up, every time, the same way you would.</li>
+      <li>Not issuing anything, ever. The signature stays where it's always been.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<div class="cta">
+  <h3>Next step</h3>
+  <p>Pick one Saturday. I shadow a review cycle, we pull a handful of your own past reports, and we find out whether this is real before either of us commits real money to it.</p>
+  <p class="sign">Michael House &nbsp;·&nbsp; F&amp;B Engineering, web &amp; infrastructure</p>
+</div>
+
+<footer>Prepared for internal discussion between F&amp;B Engineering and Michael House.</footer>
+
+</body>
+</html>
