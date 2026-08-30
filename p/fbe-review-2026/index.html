@@ -385,11 +385,11 @@ sitemap: false
     </div>
     <div class="tech-item">
       <h5>Retrieval index (RAG)</h5>
-      <p>The applicable code text, NFPA standards plus your jurisdiction's amendments, gets split into sections and stored in a searchable index. When the tool evaluates a plan set, it pulls the exact relevant passages and hands them to the model alongside the drawings. The model works from the real code text on every run, which is why every flag can carry a citation. The industry term is retrieval-augmented generation, RAG.</p>
+      <p>Rather than storing a bulk copy of NFPA and ICC text, we build a compact index of section numbers, topics, and short original summaries, plain text either of you could read yourself, closer to an annotated table of contents than a copy of the standard. When the tool evaluates a plan set, it narrows to the handful of sections actually relevant to that submittal, then cites the specific section behind each flag. That keeps every flag traceable to a real citation and keeps the tool comfortably inside normal subscriber-license terms, since it's never storing or reproducing the underlying standard in bulk.</p>
     </div>
     <div class="tech-item">
       <h5>PDF ingestion &amp; OCR</h5>
-      <p>Submittals come in as PDFs. A processing step extracts the text and, for scanned or image-only pages, runs optical character recognition so nothing in the set is invisible to the tool. Most modern submittals are already digital, so this stage is usually light.</p>
+      <p>Submittals come in as PDFs, and "already digital" doesn't mean easy: drawing sheets exported from CAD often carry a text layer whose reading order is scrambled relative to how the sheet actually reads, so pulling it as plain text produces noise, not a document. This stage routes each page correctly, clean extraction where the text is usable, a vision pass on drawing sheets, OCR for a flattened scan, so nothing in the set gets skipped or misread.</p>
     </div>
     <div class="tech-item">
       <h5>Eval harness</h5>
@@ -397,7 +397,7 @@ sitemap: false
     </div>
     <div class="tech-item">
       <h5>Storage &amp; interface</h5>
-      <p>The index and results live in Supabase, a managed Postgres database with built-in vector search, and any interface is built in Next.js. This is the same stack already running behind FBE's website, so it extends infrastructure I already maintain for you rather than adding a new vendor.</p>
+      <p>The index and results live in Supabase, the same managed Postgres already running behind FBE's website, and any interface is built in Next.js. Because the index itself is compact, plain text rather than a bulk copy of the code, this extends infrastructure I already maintain for you rather than adding a new vendor or a heavier database than the job actually needs.</p>
     </div>
     <div class="tech-item">
       <h5>What we deliberately don't use</h5>
@@ -414,6 +414,7 @@ sitemap: false
     <li><strong>Nothing gets skipped because someone got busy.</strong> The same baseline check runs every time, on every set.</li>
     <li><strong>Every flag comes with a citation.</strong> If a client or inspector asks "where does it say that," the answer is already attached.</li>
     <li><strong>It grows with the jurisdictions you actually review.</strong> No attempt to build a nationwide code database, just the disciplines and municipalities FBE works in.</li>
+    <li><strong>It already found a real pattern in your own work.</strong> The single most repeated finding in the Green Oaks letter, a door in a fire-rated corridor with no rating on the schedule, is exactly the kind of cross-sheet check this catches automatically.</li>
   </ul>
 </section>
 
@@ -426,7 +427,7 @@ sitemap: false
       <div class="tag sans">Phase 0</div>
       <div>
         <h4>Discovery: one shadow day</h4>
-        <p>I sit in on a normal review cycle, we pull 8–12 of your own past signed reports for one discipline (fire alarm/sprinkler, NFPA 13/72, is the cleanest starting point) in one jurisdiction, and confirm what code-access subscriptions FBE already holds.</p>
+        <p>I sit in on a normal review cycle, we pull 8–12 of your own past signed reports for one discipline (fire alarm/sprinkler, NFPA 13/72, is the cleanest starting point) in one jurisdiction, and confirm exactly what your existing NFPA/ICC access permits for a tool like this, not just that you have a seat.</p>
         <p class="price sans">$500 flat for the shadow day and write-up. This is what earns the right to quote Phase 1 honestly.</p>
       </div>
     </div>
@@ -435,7 +436,7 @@ sitemap: false
       <div>
         <h4>MVP pilot, built against your own cases</h4>
         <p>Build the retrieval index for that one discipline and jurisdiction, run it against the same 8–12 reports from Phase 0, and score the draft flags against what you already found by hand. If it doesn't hold up on cases you've already closed, we stop here.</p>
-        <p class="price sans">≈ $4,300 – $5,700 (exact figure depends on whether FBE already holds NFPA/ICC seats, confirmed in Phase 0)</p>
+        <p class="price sans">≈ $4,300 – $5,700, firmed up once Phase 0 confirms the license terms and the actual mix of submittals this needs to handle</p>
       </div>
     </div>
     <div class="phase future">
@@ -452,7 +453,7 @@ sitemap: false
   <h2>What This Isn't</h2>
   <div class="boundaries">
     <ul class="plain" style="margin-bottom:0;">
-      <li>Not a black box. Every flag traces to a specific, citable code section.</li>
+      <li>Not a black box. Every flag traces to a specific, citable code section, and the underlying index is plain text either of you could read and check yourselves, not an opaque embedding.</li>
       <li>Not a replacement for engineering judgment. It drafts, you decide.</li>
       <li>Not trained on FBE's reports. No fine-tuning, no model that "learns" your data. It looks things up, every time, the same way you would.</li>
       <li>Not issuing anything, ever. The signature stays where it's always been.</li>
